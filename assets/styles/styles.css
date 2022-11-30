@@ -2,7 +2,32 @@
   background-color: var(--bs-dark);
   --bs-dark: #141413;
 }
+.nav-link {
+  color: #ec258a !important;
+  transition: color ease .3s;
+}
+.nav-link:hover {
+  color: #d90368 !important;
+}
+.active {
+  color: #d90368 !important;
+}
+.btn {
+  background-color:#d90368 !important;
+  border: none;
+  transition: background ease .5s;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color:#b70146 !important;
+}
 .banner {
   height: 180px;
   background-color: var(--bs-gray-800);
+}
+footer {
+  background-color: var(--bs-gray-800);
+}
+footer a, footer p {
+  color: #d90368 !important;
 }
