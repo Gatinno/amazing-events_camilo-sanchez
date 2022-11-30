@@ -9,7 +9,7 @@
 .navbar-toggler {
   color: #d90368 !important;
 }
-.nav-link:hover {
+.nav-link:hover, footer a:hover {
   color: #d90368 !important;
 }
 .active {
@@ -24,6 +24,9 @@
 .btn:hover {
   background-color:#b70146 !important;
 }
+.btn:active {
+  background-color:#f92368 !important;
+}
 .banner {
   height: 180px;
   background-color: var(--bs-gray-800);
@@ -32,5 +35,12 @@ footer {
   background-color: var(--bs-gray-800);
 }
 footer a, footer p {
-  color: #d90368 !important;
+  color: #ec258a !important;
+}
+footer a {
+  transition: color ease .3s;
+}
+.contact-content form{
+  width: 75%;
+  max-width: 620px;
 }
