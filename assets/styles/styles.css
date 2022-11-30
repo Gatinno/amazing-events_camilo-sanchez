@@ -1,0 +1,8 @@
+.navbar {
+  background-color: var(--bs-dark);
+  --bs-dark: #141413;
+}
+.banner {
+  height: 180px;
+  background-color: var(--bs-gray-800);
+}
