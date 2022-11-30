@@ -59,9 +59,6 @@ table caption {
   caption-side: top;
   background-color: #d90368;
 }
-.border {
-  border-color: #d90368 !important;
-}
 .event-details {
   width: 100%;
   max-width: 1320px;
