@@ -31,6 +31,9 @@
   height: 180px;
   background-color: var(--bs-gray-800);
 }
+.card {
+  border-color: #d90368 !important;
+}
 footer {
   background-color: var(--bs-gray-800);
 }
@@ -43,4 +46,16 @@ footer a {
 .contact-content form{
   width: 75%;
   max-width: 620px;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 1050px;
+}
+table caption {
+  caption-side: top;
+  background-color: #d90368;
+}
+.border {
+  border-color: #d90368 !important;
 }
