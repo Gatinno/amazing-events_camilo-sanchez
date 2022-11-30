@@ -6,6 +6,9 @@
   color: #ec258a !important;
   transition: color ease .3s;
 }
+.navbar-toggler {
+  color: #d90368 !important;
+}
 .nav-link:hover {
   color: #d90368 !important;
 }
