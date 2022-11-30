@@ -31,6 +31,9 @@
   height: 180px;
   background-color: var(--bs-gray-800);
 }
+main {
+  min-height: 67.6vh;
+}
 .card {
   border-color: #d90368 !important;
 }
@@ -58,4 +61,16 @@ table caption {
 }
 .border {
   border-color: #d90368 !important;
+}
+.event-details {
+  width: 100%;
+  max-width: 1320px;
+}
+.event__img {
+  width: 100%;
+  max-width: 500px;
+}
+.details {
+  width: 100%;
+  max-width: 700px;
 }
