@@ -2,7 +2,72 @@
   background-color: var(--bs-dark);
   --bs-dark: #141413;
 }
+.nav-link {
+  color: #ec258a !important;
+  transition: color ease .3s;
+}
+.navbar-toggler {
+  color: #d90368 !important;
+}
+.nav-link:hover, footer a:hover {
+  color: #d90368 !important;
+}
+.active {
+  color: #d90368 !important;
+}
+.btn {
+  background-color:#d90368 !important;
+  border: none;
+  transition: background ease .5s;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color:#b70146 !important;
+}
+.btn:active {
+  background-color:#f92368 !important;
+}
 .banner {
   height: 180px;
   background-color: var(--bs-gray-800);
+}
+main {
+  min-height: 67.6vh;
+}
+.card {
+  border-color: #d90368 !important;
+}
+footer {
+  background-color: var(--bs-gray-800);
+}
+footer a, footer p {
+  color: #ec258a !important;
+}
+footer a {
+  transition: color ease .3s;
+}
+.contact-content form{
+  width: 75%;
+  max-width: 620px;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 1050px;
+}
+table caption {
+  caption-side: top;
+  background-color: #d90368;
+}
+.event-details {
+  width: 100%;
+  max-width: 1320px;
+}
+.event__img {
+  width: 100%;
+  max-width: 500px;
+}
+.details {
+  width: 100%;
+  max-width: 700px;
 }
