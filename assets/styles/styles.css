@@ -71,3 +71,6 @@ table caption {
   width: 100%;
   max-width: 700px;
 }
+.card-img-top {
+  height: 160px;
+}
