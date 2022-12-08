@@ -36,6 +36,7 @@ main {
 }
 .card {
   border-color: #d90368 !important;
+  width: 270px
 }
 footer {
   background-color: var(--bs-gray-800);
