@@ -26,7 +26,7 @@ const template = (events, container) => {
           <h5 class="card-title">${name}</h5>
           <p class="card-text">${description}</p>
           <div class="d-flex justify-content-between align-items-center">
-            <span>Price: ${price}</span>
+            <span>Price:$${price}</span>
             <a href="/views/details.html?id=${_id}" class="btn btn-secondary">view more</a>
           </div>
         </div>
