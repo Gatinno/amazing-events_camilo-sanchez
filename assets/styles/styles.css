@@ -36,6 +36,7 @@ main {
 }
 .card {
   border-color: #d90368 !important;
+  width: 270px
 }
 footer {
   background-color: var(--bs-gray-800);
@@ -70,4 +71,7 @@ table caption {
 .details {
   width: 100%;
   max-width: 700px;
+}
+.card-img-top {
+  height: 160px;
 }
