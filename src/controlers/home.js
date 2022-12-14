@@ -8,32 +8,26 @@ document.addEventListener("DOMContentLoaded", () => {
 	const checkboxContainer = document.getElementsByClassName("checkbox-filters")[0];
 	const searchInput = document.getElementsByClassName("search-input")[0];
 	const categories = [...new Set(data.events.map((event) => event.category))];
+	let searchText = ""
 	let activeCategories = [];
   let eventsByCategory = []
 	renderCategoriesCheckbox(categories, checkboxContainer);
-	const handleCheck = (e) => {
-		if (e.target.checked) {
-			activeCategories.push(e.target.value);
-		} else {
-			activeCategories = activeCategories.filter(
-				(category) => category !== e.target.value
-			);
-		}
-    eventsByCategory = filterByCategory(data.events, activeCategories);
-    renderCard(
-      { currentDate: data.currentDate, events: eventsByCategory },
-      cardContainer,
-      "home"
-    );
-	};
-	document.handleCheck = handleCheck;
+	const checkbox = [...document.querySelectorAll('input[type="checkbox"]')]
+	checkbox.forEach(check => {
+		check.addEventListener('change', (e) => {
+			activeCategories = [...document.querySelectorAll('input[type="checkbox"]:checked')].map(elemento => elemento.value)
+			eventsByCategory = filterByCategory(data.events, activeCategories);
+			searchFilter(searchText, {currentDate: data.currentDate, eventsByCategory}, cardContainer, "home")
+		})
+	})
 	eventsByCategory = filterByCategory(data.events, activeCategories);
 	renderCard(
 		{ currentDate: data.currentDate, events: eventsByCategory },
 		cardContainer,
 		"home"
 	);
-	searchInput.addEventListener("input", (e) =>
-		searchFilter(e.target.value, {currentDate: data.currentDate, eventsByCategory}, cardContainer, "home")
-	);
+	searchInput.addEventListener("input", (e) =>{
+		searchText = e.target.value
+		searchFilter(searchText, {currentDate: data.currentDate, eventsByCategory}, cardContainer, "home")
+	});
 });
