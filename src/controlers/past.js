@@ -12,14 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
 	let activeCategories = [];
   let eventsByCategory = []
 	renderCategoriesCheckbox(categories, checkboxContainer);
-	const checkbox = [...document.querySelectorAll('input[type="checkbox"]')]
-	checkbox.forEach(check => {
-		check.addEventListener('change', (e) => {
+	checkboxContainer.addEventListener('change', (e) => {
 			activeCategories = [...document.querySelectorAll('input[type="checkbox"]:checked')].map(elemento => elemento.value)
 			eventsByCategory = filterByCategory(data.events, activeCategories);
 			searchFilter(searchText, {currentDate: data.currentDate, eventsByCategory}, cardContainer, "past")
 		})
-	})
 	renderCard(
 		{ currentDate: data.currentDate, events: data.events },
 		cardContainer,
