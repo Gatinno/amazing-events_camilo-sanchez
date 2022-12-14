@@ -20,9 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
 			searchFilter(searchText, {currentDate: data.currentDate, eventsByCategory}, cardContainer, "past")
 		})
 	})
-	eventsByCategory = filterByCategory(data.events, activeCategories);
 	renderCard(
-		{ currentDate: data.currentDate, events: eventsByCategory },
+		{ currentDate: data.currentDate, events: data.events },
 		cardContainer,
 		"past"
 	);
