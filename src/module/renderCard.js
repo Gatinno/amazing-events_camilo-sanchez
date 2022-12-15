@@ -1,15 +1,15 @@
 const renderCard = ({ currentDate, events }, container, view) => {
 	switch (view) {
 		case "home":
-			template(events, container, true)
+			template(events, container, true);
 			break;
 		case "upcoming":
-      const upcomingEvents = events.filter(event => event.date > currentDate)
-			template(upcomingEvents, container)
+			const upcomingEvents = events.filter((event) => event.date > currentDate);
+			template(upcomingEvents, container);
 			break;
 		case "past":
-      const pastEvents = events.filter(event => event.date < currentDate)
-			template(pastEvents, container)
+			const pastEvents = events.filter((event) => event.date < currentDate);
+			template(pastEvents, container);
 			break;
 		default:
 			console.error("This view doesn't exist");
@@ -18,8 +18,9 @@ const renderCard = ({ currentDate, events }, container, view) => {
 };
 const template = (events, container) => {
 	let html = "";
-	events.forEach(({_id, image, name, description, price}) => {
-		html += `
+	events.length
+		? events.forEach(({ _id, image, name, description, price }) => {
+				html += `
       <div class="card col-8 col-sm-5 col-md-4 col-lg-3 col-xl-2 mt-5 bg-dark text-light mx-3 mx-md-4 text-center border border-light px-0">
         <img src="${image}" class="card-img-top w-100" alt="${name}">
         <div class="card-body d-flex flex-column justify-content-between">
@@ -32,7 +33,8 @@ const template = (events, container) => {
         </div>
       </div>
       `;
-	});
-  container.innerHTML = html
+		  })
+		: (html = '<h2 class="text-light text-center mt-3">No results...</h2>');
+	container.innerHTML = html;
 };
 export default renderCard;

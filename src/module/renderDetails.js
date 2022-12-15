@@ -7,6 +7,8 @@ const renderDetails = (id, array, container) => {
 		category,
 		place,
 		capacity,
+    assistance,
+    estimate,
 		price
 	} = array.find((element) => element._id === id);
 	const html = `
@@ -19,6 +21,7 @@ const renderDetails = (id, array, container) => {
         <div class="mt-3">
           <p>Place: ${place}</p>
           <p class="mt-3">Capacity: ${capacity} people</p>
+          <p>${assistance ? `Asistance: ${assistance} people`: `Estimate: ${estimate} people`}</p>
         </div>
       </div>
     </div>
