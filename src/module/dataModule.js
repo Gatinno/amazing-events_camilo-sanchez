@@ -44,29 +44,33 @@ class DataModule {
 	eventRevenue(assistance, price) {
 		return price * assistance;
 	}
+	getCategoriesStats(events) {
+		return this.categories.reduce((categoriesStats, category) => {
+			let filterEvents = events.filter(event => event.category.toLowerCase().includes(category.toLowerCase()))
+			let people = filterEvents.reduce((accumulator, event) => accumulator + (event.assistance ? event.assistance : event.estimate), 0)
+			let capacity = filterEvents.reduce((accumulator, event) => accumulator + event.capacity, 0)
+			let revenue = filterEvents.reduce((accumulator, event) => accumulator + this.eventRevenue((event.assistance ? event.assistance : event.estimate), event.price), 0)
+			categoriesStats.push({category, people, capacity, revenue})
+			return categoriesStats
+		},[])
+	}
 	getUpcomingEventsStatics() {
-		return this.getUpcoming().map((event) => ({
-			category: event.category,
-			revenue: this.eventRevenue(
-				event.estimate,
-				event.price
-			),
+		return this.getCategoriesStats(this.getUpcoming()).map((category) => ({
+			category: category.category,
+			revenue: category.revenue,
 			percentAssistance: this.getPercent(
-				event.capacity,
-				event.estimate
+				category.capacity,
+				category.people
 			),
 		}));
 	}
 	getPastEventsStatics() {
-		return this.getPast().map((event) => ({
-			category: event.category,
-			revenue: this.eventRevenue(
-				event.assistance,
-				event.price
-			),
+		return this.getCategoriesStats(this.getPast()).map((category) => ({
+			category: category.category,
+			revenue: category.revenue,
 			percentAssistance: this.getPercent(
-				event.capacity,
-				event.assistance
+				category.capacity,
+				category.people
 			),
 		}));
 	}
