@@ -13,6 +13,9 @@ class DataModule {
 	getPast() {
 		return this.events.filter((event) => event.date < this.currentDate);
 	}
+	getEventById(id) {
+		return this.events.find(event => event._id === id)
+	}
 	getCategories() {
 		return this.categories
 	}
