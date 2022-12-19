@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 	const data = await getData("https://amazing-events.onrender.com/api/events")
 	const eventsModule = new DataModule(data.events, data.currentDate)
 	const eventsList = eventsModule.getAll()
-	const categories = [...new Set(data.events.map((event) => event.category))];
+	const categories = eventsModule.getCategories();
 	let activeCategories = [];
 	renderCategoriesCheckbox(categories, checkboxContainer);
 	checkboxContainer.addEventListener('change', (e) => {

@@ -2,6 +2,7 @@ class DataModule {
 	constructor(events, currentDate) {
 		this.events = events;
 		this.currentDate = currentDate;
+		this.categories = [...new Set(events.map(event => event.category))]
 	}
 	getAll() {
 		return this.events;
@@ -11,6 +12,9 @@ class DataModule {
 	}
 	getPast() {
 		return this.events.filter((event) => event.date < this.currentDate);
+	}
+	getCategories() {
+		return this.categories
 	}
 	getPercent(total, assistance) {
 		return ((assistance * 100) / total).toFixed(2);
@@ -42,7 +46,7 @@ class DataModule {
 	}
 	getUpcomingEventsStatics() {
 		return this.getUpcoming().map((event) => ({
-			name: event.name,
+			category: event.category,
 			revenue: this.eventRevenue(
 				event.estimate,
 				event.price
@@ -55,7 +59,7 @@ class DataModule {
 	}
 	getPastEventsStatics() {
 		return this.getPast().map((event) => ({
-			name: event.name,
+			category: event.category,
 			revenue: this.eventRevenue(
 				event.assistance,
 				event.price

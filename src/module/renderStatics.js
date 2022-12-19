@@ -11,7 +11,7 @@ const template = (firstElement, secondElement, thirdElement) => {
 const renderTableUpcomingPast = (array, container) => {
   let html = ''
   array.forEach(element => {
-    html += template(element.name, `$${element.revenue}`, `${element.percentAssistance}%`)
+    html += template(element.category, `$${element.revenue}`, `${element.percentAssistance}%`)
   });
   container.innerHTML = html
 }
