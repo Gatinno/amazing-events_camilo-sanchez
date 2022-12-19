@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   firstTable.innerHTML = template(highestAndLowestEvents[0].name, highestAndLowestEvents[1].name, eventWithHighestCapacity.name)
 })
 const getPercent = (total, assistance) => ((assistance * 100)/total).toFixed(2)
-const getEventsWithPercent = (events) => events.map((event) => event.assistance ? ({name: event.name,  percentAssistance: getPercent(event.capacity, event.assistance)}) : null).filter(event => event)
+const getEventsWithPercent = (events) => events.filter((event) => event.assistance).map(event => ({name: event.name,  percentAssistance: getPercent(event.capacity, event.assistance)}))
 const getEventsWithCapacity = (events) => events.map((event) => ({name: event.name, capacity: event.capacity}))
 const getHighestAndLowestEvents = (events) => events.slice(0,1).concat(events.slice(-1))
 const eventRevenue = (assistance, price) => (price * assistance)
