@@ -40,7 +40,7 @@ class DataModule {
 	eventRevenue(assistance, price) {
 		return price * assistance;
 	}
-	getUpcomingEventsRevenueAssistance() {
+	getUpcomingEventsStatics() {
 		return this.getUpcoming().map((event) => ({
 			name: event.name,
 			revenue: this.eventRevenue(
@@ -53,7 +53,7 @@ class DataModule {
 			),
 		}));
 	}
-	getPastEventsRevenueAssistance() {
+	getPastEventsStatics() {
 		return this.getPast().map((event) => ({
 			name: event.name,
 			revenue: this.eventRevenue(
