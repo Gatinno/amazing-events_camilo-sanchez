@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 	const searchInput = document.getElementsByClassName("search-input")[0];
 	const data = await getData("https://amazing-events.onrender.com/api/events")
 	const eventsModule = new DataModule(data.events, data.currentDate)
-	const eventsList = eventsModule.getAll()
+	const eventsList = eventsModule.getUpcoming()
 	const categories = [...new Set(data.events.map((event) => event.category))];
 	let activeCategories = [];
 	renderCategoriesCheckbox(categories, checkboxContainer);
