@@ -1,22 +1,4 @@
-const renderCard = ({ currentDate, events }, container, view) => {
-	switch (view) {
-		case "home":
-			template(events, container, true);
-			break;
-		case "upcoming":
-			const upcomingEvents = events.filter((event) => event.date > currentDate);
-			template(upcomingEvents, container);
-			break;
-		case "past":
-			const pastEvents = events.filter((event) => event.date < currentDate);
-			template(pastEvents, container);
-			break;
-		default:
-			console.error("This view doesn't exist");
-			break;
-	}
-};
-const template = (events, container) => {
+const renderCard = ({ events }, container) => {
 	let html = "";
 	events.length
 		? events.forEach(({ _id, image, name, description, price }) => {
