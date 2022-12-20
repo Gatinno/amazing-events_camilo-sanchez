@@ -55,9 +55,9 @@ class DataModule {
 	getCategoriesStats(events) {
 		return this.categories.reduce((categoriesStats, category) => {
 			let filterEvents = events.filter(event => event.category.toLowerCase().includes(category.toLowerCase()))
-			let people = filterEvents.reduce((accumulator, event) => accumulator + (event.assistance ? event.assistance : event.estimate), 0)
+			let people = filterEvents.reduce((accumulator, event) => accumulator + (event.assistance || event.estimate), 0)
 			let capacity = filterEvents.reduce((accumulator, event) => accumulator + event.capacity, 0)
-			let revenue = filterEvents.reduce((accumulator, event) => accumulator + this.eventRevenue((event.assistance ? event.assistance : event.estimate), event.price), 0)
+			let revenue = filterEvents.reduce((accumulator, event) => accumulator + this.eventRevenue((event.assistance || event.estimate), event.price), 0)
 			categoriesStats.push({category, people, capacity, revenue})
 			return categoriesStats
 		},[])
