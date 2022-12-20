@@ -22,21 +22,24 @@ class DataModule {
 	getPercent(total, assistance) {
 		return ((assistance * 100) / total).toFixed(2);
 	}
+	sortEventsByProperty(events, property) {
+		return events.sort((a, b) => b[property] - a[property])
+	} 
 	getEventsWithPercent() {
-		return this.events
+		return this.sortEventsByProperty(this.events
 			.filter((event) => event.assistance)
 			.map((event) => ({
 				name: event.name,
 				percentAssistance: this.getPercent(event.capacity, event.assistance),
 			}))
-			.sort((a, b) => b.percentAssistance - a.percentAssistance);
+			, "percentAssistance")
 	}
 	getEventsWithCapacity() {
-		return this.events.map((event) => ({
+		return this.sortEventsByProperty(this.events.map((event) => ({
 			name: event.name,
 			capacity: event.capacity,
 		}))
-    .sort((a, b) => b.capacity - a.capacity);
+    , "capacity")
 	}
 	getHighestPercentEvent() {
 		const [event] = this.getEventsWithPercent().slice(0)
