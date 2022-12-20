@@ -39,10 +39,12 @@ class DataModule {
     .sort((a, b) => b.capacity - a.capacity);
 	}
 	getHighestPercentEvent() {
-		return this.getEventsWithPercent().slice(0)[0];
+		const [event] = this.getEventsWithPercent().slice(0)
+		return event;
 	}
 	getLowestPercentEvent() {
-		return this.getEventsWithPercent().slice(-1)[0];
+		const [event] = this.getEventsWithPercent().slice(-1)
+		return event;
 	}
 	eventRevenue(assistance, price) {
 		return price * assistance;
