@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../assets/styles/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
   <script src="https://kit.fontawesome.com/6cfbaf12b5.js" crossorigin="anonymous"></script>
+  <script type="module" src="../src/controllers/stats.js"></script>
 </head>
 <body class="bg-dark" >
   <header>
@@ -42,16 +43,11 @@
       <thead class="border border-1 text-center">
         <tr class="border border-1">
           <th class="border border-1">Events with the highest percentage of attendance</th>
-          <th class="border border-1">Events with the highest percentage of attendance</th>
+          <th class="border border-1">Events with the lowest percentage of attendance</th>
           <th class="border border-1">Events with largest capacity</th>
         </tr>
       </thead>
-      <tbody>
-        <tr class="border border-1">
-          <td class="border border-1">hola</td>
-          <td class="border border-1">hola</td>
-          <td class="border border-1">hola</td>
-        </tr>
+      <tbody class="first-table">
       </tbody>
     </table>
     <table class="text-light mt-4">
@@ -63,22 +59,7 @@
           <th class="border border-1">Percentage of attendance</th>
         </tr>
       </thead>
-      <tbody class="border border-1">
-        <tr class="border border-1">
-          <td class="border border-1">hola</td>
-          <td class="border border-1">hola</td>
-          <td class="border border-1">hola</td>
-        </tr>
-        <tr class="border border-1">
-          <td class="border border-1">hola</td>
-          <td class="border border-1">hola</td>
-          <td class="border border-1">hola</td>
-        </tr>
-        <tr class="border border-1">
-          <td class="border border-1">hola</td>
-          <td class="border border-1">hola</td>
-          <td class="border border-1">hola</td>
-        </tr>
+      <tbody id="upcoming-table" class="border border-1">
       </tbody>
     </table>
     <table class="text-light mt-4">
@@ -90,22 +71,7 @@
           <th class="border border-1">Percentage of attendance</th>
         </tr>
       </thead>
-      <tbody class="border border-1">
-        <tr class="border border-1">
-          <td class="border border-1">hola</td>
-          <td class="border border-1">hola</td>
-          <td class="border border-1">hola</td>
-        </tr>
-        <tr class="border border-1">
-          <td class="border border-1">hola</td>
-          <td class="border border-1">hola</td>
-          <td class="border border-1">hola</td>
-        </tr>
-        <tr class="border border-1">
-          <td class="border border-1">hola</td>
-          <td class="border border-1">hola</td>
-          <td class="border border-1">hola</td>
-        </tr>
+      <tbody id="past-table" class="border border-1">
       </tbody>
     </table>
   </main>

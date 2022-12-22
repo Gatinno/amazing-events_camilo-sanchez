@@ -1,9 +1,5 @@
 const filterByCategory = (events, categories) =>
 	categories.length
-		? categories
-				.map((category) =>
-					events.filter((event) => event.category === category)
-				)
-				.flat()
+		? events.filter(event => categories.includes(event.category))
 		: events;
 export default filterByCategory;
